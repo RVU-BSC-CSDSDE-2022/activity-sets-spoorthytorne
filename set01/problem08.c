@@ -17,7 +17,10 @@ int main(){
 int input_array_size(){
   int a;
   printf("Enter the size of the array\n");
-  scanf("%d", &a);
+  if (scanf("%d", &a)!=1){
+    printf("Error in user input no point continuing\n");
+    exit(0);
+  }
   return(a);
 }
 
