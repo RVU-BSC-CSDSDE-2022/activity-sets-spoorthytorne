@@ -20,25 +20,10 @@ void input_two_strings(char *string1, char *string2){
 }
 
 int stringcompare(char *string1, char *string2){
-  int a = strlen(string1);
-  int b = strlen(string2);//use your own strlen function
-  if(a == b){//use only one loop to check all the required condition
-    int i;
-    for(i = 0;i<a;i++){
-      if(string1[i]==string2[i]){
-        return(10);
-        continue;
-      }
-      else if(string1[i]>string2[i]){
-        return(1);
-        break;
-      }
-      else{
-        return(0);
-        break;
-      }
-    }  
-  }  
+  int i = 0,flag = 0;
+  for(i = 0;string1[i] != '\0'&&
+  string1[i]==string2[i];i++){}
+  return string1[i]-string2[2];
 }
 
 void output(char *string1,char *string2,int result){
