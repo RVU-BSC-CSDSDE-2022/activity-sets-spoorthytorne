@@ -2,6 +2,7 @@
 #include<stdlib.h>
 int input_array_size();
 void input_array(int n, int a[n]);
+int is_composite(int x);
 int sum_composite_numbers(int n, int a[n]);
 void output(int sum);
 
@@ -32,24 +33,30 @@ void input_array(int n, int a[n]){
   }
 }
 
+int is_composite(int x){
+  int count=0;
+  for(int i = 1;i<=x;i++){
+    if(x%i == 0){
+      count++;
+      if(count == 3){
+        return(1);
+      }
+    }
+  }
+  return(0);
+}
+
 int sum_composite_numbers(int n, int a[n]){
   int i, count = 0,sum=0;
- for(i= 1;i <=n;i++)
-{
- if (n%i == 0)
- count = count+1; 
-  sum=sum+a[i];
-   
- }
-   return (count,sum); 
-} 
-
+  for(i= 0;i < n;i++){
+    count = is_composite(a[i]);
+    if(count == 1)
+      sum = sum+a[i];
+    }
+  return(sum);
+}
 void output(int sum){
-  int i,n,a[n];
-  for(i = 0;i<n-1;i++){
-    printf("%d + ", a[i]);
-  }
-  printf("%d = %d",a[n-1],sum);
+  printf("Sum of all the composite number is %d\n",sum);
 }
 
 
